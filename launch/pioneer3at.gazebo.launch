@@ -6,8 +6,8 @@
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
         <!-- To use this world go to https://github.com/Gastd/cic and download the model -->
-        <!-- <arg name="world_name" value="$(find fcr2017)/cic/cic.world"/> -->
-        <arg name="world_name" value="$(find fcr2017)/worlds/stronghold_trials.world"/>
+        <arg name="world_name" value="$(find fcr2017)/worlds/cic/cic.world"/>
+        <!-- <arg name="world_name" value="$(find fcr2017)/worlds/stronghold_trials.world"/> -->
     </include>
 
     <include file="$(find fcr2017)/launch/upload_pioneer3at.xml"/>

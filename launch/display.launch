@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <param name="robot_description" command="$(find xacro)/xacro.py $(find p3at_tutorial)/robots/pioneer3at.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find fcr2017)/robots/pioneer3at.xacro" />
 
     <!-- send fake joint values -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -10,5 +10,5 @@
     <!-- Combine joint values -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
     <!-- Show in Rviz   -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find p3at_tutorial)/launch/display.rviz"/>  
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/display.rviz"/>  
 </launch>
