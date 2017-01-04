@@ -1,0 +1,397 @@
+<?xml version="1.0" ?>
+<sdf version='1.4'>
+  <world name='default'>
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.5 0.5 0.5 1</background>
+      <shadows>0</shadows>
+    </scene>
+    <physics type='ode'>
+      <gravity>0 0 -9.81</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>10</iters>
+          <sor>1.3</sor>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>10</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <light name='directional_light_1' type='directional'>
+      <pose>0 20 20 0.1 0.1 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+      <attenuation>
+        <range>300</range>
+      </attenuation>
+      <direction>0.1 0.1 -1</direction>
+      <cast_shadows>0</cast_shadows>
+    </light>
+    <model name='small_indoor_scenario'>
+      <link name='120m_landscape_smooth_tri_link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <collision name='small_indoor_scenario_collision'>
+          <geometry>
+            <mesh>
+              <uri>file://small_indoor_scenario.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='small_indoor_scenario'>
+          <geometry>
+            <mesh>
+              <uri>file://small_indoor_scenario.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <cast_shadows>0</cast_shadows>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+    </model>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='quadrotor'>
+      <link name='base_link'>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-9.15332e-05 0 -0.0149897 0 -0 0</pose>
+          <mass>1.748</mass>
+          <inertia>
+            <ixx>0.013931</ixx>
+            <ixy>0</ixy>
+            <ixz>4.78352e-07</ixz>
+            <iyy>0.0139566</iyy>
+            <iyz>2.09103e-17</iyz>
+            <izz>0.0219876</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/gastd/hector_quadrotor_tutorial/src/hector_quadrotor/hector_quadrotor_description/meshes/quadrotor/quadrotor_base.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <bounce/>
+            <friction>
+              <ode/>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+          </surface>
+        </collision>
+        <collision name='base_link_collision_laser0_frame'>
+          <pose>0 -2.37847e-15 -0.0855 -3.14159 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.058 0.058 0.087</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_link_collision_sonar_link'>
+          <pose>-0.16 0 -0.012 3.14159 1.57079 3.14159</pose>
+          <geometry>
+            <box>
+              <size>0.01 0.01 0.01</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/gastd/hector_quadrotor_tutorial/src/hector_quadrotor/hector_quadrotor_description/meshes/quadrotor/quadrotor_base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_link_visual_laser0_frame'>
+          <pose>0 0 -0.097 -3.14159 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/gastd/hector_quadrotor_tutorial/src/hector_models/hector_sensors_description/meshes/hokuyo_utm30lx/hokuyo_utm_30lx.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_link_visual_sonar_link'>
+          <pose>-0.16 0 -0.012 3.14159 1.57079 3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/gastd/hector_quadrotor_tutorial/src/hector_models/hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <sensor name='front_cam_camera_sensor' type='camera'>
+          <update_rate>10</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>1.5708</horizontal_fov>
+            <image>
+              <format>R8G8B8</format>
+              <width>320</width>
+              <height>240</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <plugin name='front_cam_camera_controller' filename='libgazebo_ros_camera.so'>
+            <cameraName>front_cam</cameraName>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10</updateRate>
+            <imageTopicName>camera/image</imageTopicName>
+            <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+            <frameName>front_cam_optical_frame</frameName>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>0.05 0 -0.06 0 -0 0</pose>
+        </sensor>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <sensor name='laser0' type='ray'>
+          <always_on>1</always_on>
+          <update_rate>40</update_rate>
+          <visualize>0</visualize>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>1081</samples>
+                <resolution>1</resolution>
+                <min_angle>-2.35619</min_angle>
+                <max_angle>2.35619</max_angle>
+              </horizontal>
+            </scan>
+            <range>
+              <min>0.08</min>
+              <max>30</max>
+              <resolution>0.01</resolution>
+            </range>
+          </ray>
+          <plugin name='gazebo_ros_laser0_controller' filename='libgazebo_ros_laser.so'>
+            <gaussianNoise>0.005</gaussianNoise>
+            <hokuyoMinIntensity>2000</hokuyoMinIntensity>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>40</updateRate>
+            <topicName>scan</topicName>
+            <frameName>laser0_frame</frameName>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>0 0 -0.097 -3.14159 -0 0</pose>
+        </sensor>
+        <gravity>1</gravity>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <sensor name='sonar' type='ray'>
+          <always_on>1</always_on>
+          <update_rate>10</update_rate>
+          <visualize>0</visualize>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>3</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.349066</min_angle>
+                <max_angle>0.349066</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>3</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.349066</min_angle>
+                <max_angle>0.349066</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.03</min>
+              <max>3</max>
+              <resolution>0.01</resolution>
+            </range>
+          </ray>
+          <plugin name='gazebo_ros_sonar_controller' filename='libhector_gazebo_ros_sonar.so'>
+            <gaussianNoise>0.005</gaussianNoise>
+            <topicName>sonar_height</topicName>
+            <frameId>sonar_link</frameId>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>-0.16 0 -0.012 3.14159 1.57079 3.14159</pose>
+        </sensor>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='quadrotor_imu_sim' filename='libhector_gazebo_ros_imu.so'>
+        <updateRate>100.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <frameId>/base_link</frameId>
+        <topicName>raw_imu</topicName>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <gaussianNoise>0</gaussianNoise>
+        <accelDrift>0.5 0.5 0.5</accelDrift>
+        <accelGaussianNoise>0.35 0.35 0.3</accelGaussianNoise>
+        <rateDrift>0.1 0.1 0.1</rateDrift>
+        <rateGaussianNoise>0.05 0.05 0.015</rateGaussianNoise>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='quadrotor_baro_sim' filename='libhector_gazebo_ros_baro.so'>
+        <updateRate>10.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <frameId>/base_link</frameId>
+        <topicName>pressure_height</topicName>
+        <altimeterTopicName>altimeter</altimeterTopicName>
+        <offset>0</offset>
+        <drift>10.0</drift>
+        <gaussianNoise>0.1</gaussianNoise>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='quadrotor_magnetic_sim' filename='libhector_gazebo_ros_magnetic.so'>
+        <updateRate>10.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <frameId>/base_link</frameId>
+        <topicName>magnetic</topicName>
+        <offset>0 0 0</offset>
+        <drift>0.0 0.0 0.0</drift>
+        <gaussianNoise>1.3e-2 1.3e-2 1.3e-2</gaussianNoise>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='quadrotor_gps_sim' filename='libhector_gazebo_ros_gps.so'>
+        <updateRate>4.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <frameId>/base_link</frameId>
+        <topicName>fix</topicName>
+        <velocityTopicName>fix_velocity</velocityTopicName>
+        <referenceLatitude>49.860246</referenceLatitude>
+        <referenceLongitude>8.687077</referenceLongitude>
+        <drift>5.0 5.0 5.0</drift>
+        <gaussianNoise>0.01 0.01 0.01</gaussianNoise>
+        <velocityDrift>0 0 0</velocityDrift>
+        <velocityGaussianNoise>0.05 0.05 0.05</velocityGaussianNoise>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='quadrotor_groundtruth_sim' filename='libgazebo_ros_p3d.so'>
+        <updateRate>100.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <topicName>ground_truth/state</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='quadrotor_controller' filename='libgazebo_ros_control.so'>
+        <controlPeriod>0.01</controlPeriod>
+        <robotSimType>hector_quadrotor_controller_gazebo/QuadrotorHardwareSim</robotSimType>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='quadrotor_propulsion' filename='libhector_gazebo_quadrotor_propulsion.so'>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <frameId>/base_link</frameId>
+        <controlRate>100.0</controlRate>
+        <controlDelay>0.01</controlDelay>
+        <motorStatusRate>100.0</motorStatusRate>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <static>0</static>
+      <plugin name='quadrotor_aerodynamics' filename='libhector_gazebo_quadrotor_aerodynamics.so'>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <bodyName>base_link</bodyName>
+        <frameId>/base_link</frameId>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <pose>0 0 0.3 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>14 466000000</sim_time>
+      <real_time>90 173109359</real_time>
+      <wall_time>1483490291 579637234</wall_time>
+      <model name='quadrotor'>
+        <pose>-0.000837 -0.005728 0.182463 -1.3e-05 -1.32349e-23 -0.006893</pose>
+        <link name='base_link'>
+          <pose>-0.000837 -0.005728 0.182463 -1.3e-05 -1.32349e-23 -0.006893</pose>
+          <velocity>4.5e-05 0.00413 -0.001336 -0.022619 0.000157 -0.000169</velocity>
+          <acceleration>0.072646 2.97162 -2.71165 -0.141077 0.002567 -0.001289</acceleration>
+          <wrench>0.126986 5.19439 -4.73997 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='small_indoor_scenario'>
+        <pose>0 0 0 0 -0 0</pose>
+        <link name='120m_landscape_smooth_tri_link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>-8.68543 -2.58528 3.64156 -0.005186 0.261536 0.255558</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>
