@@ -1,4 +1,5 @@
 #include "ros/ros.h"
+#include <string>
 #include "std_msgs/Float32.h"
 #include "geometry_msgs/Twist.h"
 
@@ -19,8 +20,8 @@ int main(int argc, char *argv[])
 {
     ros::init(argc, argv, "forward_kinematic_pioneer");
     ros::NodeHandle n;
-    string right = "/v_right";
-    string left = "/v_left";
+    std::string right = "/v_right";
+    std::string left = "/v_left";
     ros::Subscriber right_sub = n.subscribe(right, 10, rightVelocityCallback);
     ros::Subscriber left_sub = n.subscribe(left, 10, leftVelocityCallback);
     ros::Publisher vel_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
     {
         // forward kinematics
         vel_lin = vright.data/2 + vleft.data/2;
-        vel_ang = (vright - vleft)/0.4;
+        vel_ang = (vright.data - vleft.data)/0.4;
 
         geometry_msgs::Twist vel;
         vel.linear.x = vel_lin;
