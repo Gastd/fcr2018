@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     ros::Subscriber left_sub = n.subscribe(left, 10, leftVelocityCallback);
     ros::Publisher vel_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
 
-    ros::Rate loop_rate(25);
+    ros::Rate loop_rate(50);
     loop_rate.sleep();
 
     float vel_lin, vel_ang;
@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
     while(ros::ok())
     {
         // forward kinematics
-        vel_lin = vright.data + vleft.data;
-        vel_ang = 0.4*vright - 0.4*vleft;
+        vel_lin = vright.data/2 + vleft.data/2;
+        vel_ang = (vright - vleft)/0.4;
 
         geometry_msgs::Twist vel;
         vel.linear.x = vel_lin;
