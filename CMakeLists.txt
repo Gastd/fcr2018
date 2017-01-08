@@ -3,6 +3,8 @@ project(fcr2017)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  std_msgs
+  geometry_msgs
   sensor_msgs
   p2os_msgs
   tf
@@ -10,7 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
  # INCLUDE_DIRS include
- CATKIN_DEPENDS roscpp sensor_msgs tf
+ CATKIN_DEPENDS roscpp std_msgs geometry_msgs sensor_msgs tf
 )
 
 include_directories(
@@ -19,3 +21,6 @@ include_directories(
 
 add_executable(gazebo_sonar src/gazebo_sonar.cpp)
 target_link_libraries(gazebo_sonar ${catkin_LIBRARIES})
+
+add_executable(forward_kinematics_pioneer src/forward_kinematics_pioneer.cpp)
+target_link_libraries(forward_kinematics_pioneer ${catkin_LIBRARIES})
