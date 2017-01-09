@@ -114,9 +114,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 999999
+      Max Intensity: 0
       Min Color: 0; 0; 0
-      Min Intensity: 4.26583e-39
+      Min Intensity: 0
       Name: LaserScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -128,6 +128,16 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Angle Tolerance: 0.1
+      Class: rviz/Odometry
+      Color: 255; 25; 0
+      Enabled: true
+      Keep: 100
+      Length: 0.5
+      Name: Odometry
+      Position Tolerance: 0.1
+      Topic: /ground_truth/state
       Value: true
   Enabled: true
   Global Options:
@@ -153,22 +163,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.576
+      Distance: 4.58029
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.357741
-        Y: -0.15076
-        Z: 0.536801
+        X: 0
+        Y: 0
+        Z: 0
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.600399
-      Target Frame: <Fixed Frame>
+      Pitch: 0.350399
+      Target Frame: base_link
       Value: Orbit (rviz)
-      Yaw: 3.0704
+      Yaw: 0.4654
     Saved: ~
 Window Geometry:
   Displays:
