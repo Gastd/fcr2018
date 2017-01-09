@@ -24,3 +24,6 @@ target_link_libraries(gazebo_sonar ${catkin_LIBRARIES})
 
 add_executable(forward_kinematics_pioneer src/forward_kinematics_pioneer.cpp)
 target_link_libraries(forward_kinematics_pioneer ${catkin_LIBRARIES})
+
+add_executable(teste src/teste.cpp)
+target_link_libraries(teste ${catkin_LIBRARIES})
