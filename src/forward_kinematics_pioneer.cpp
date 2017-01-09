@@ -26,10 +26,12 @@ int main(int argc, char *argv[])
     ros::Subscriber left_sub = n.subscribe(left, 10, leftVelocityCallback);
     ros::Publisher vel_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
 
-    ros::Rate loop_rate(50);
+    ros::Rate loop_rate(100);
     loop_rate.sleep();
 
     float vel_lin, vel_ang;
+    vright.data = vleft.data = 0.0;
+    vel_lin = vel_ang = 0.0;
 
     while(ros::ok())
     {
