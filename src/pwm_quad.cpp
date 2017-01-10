@@ -18,10 +18,8 @@ int main(int argc, char *argv[])
       hector_uav_msgs::MotorPWM msg1;
       msg1.pwm = pwmsHigh;
       motor_commander_1.publish(msg1); // Publish msg
-      sleep(2);
       hector_uav_msgs::MotorPWM msg1Stop;   
-      motor_commander_1.publish(msg1Stop); // Publish msg
-      sleep(2);
+      //motor_commander_1.publish(msg1Stop);
 
       ros::spinOnce();
       loop_rate.sleep();
