@@ -5,7 +5,7 @@ ObstacleAvoidance::ObstacleAvoidance(ros::NodeHandle nh) : nh_(nh)
 {
     vel_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1);
     laser_sub_ = nh_.subscribe("scan", 1, &ObstacleAvoidance::laserCallback, this);
-    sonar_sub_ = nh_.subscribe("sonar", 1, &ObstacleAvoidance::sonarallback, this);
+    sonar_sub_ = nh_.subscribe("sonar", 1, &ObstacleAvoidance::sonarCallback, this);
 }
 
 void ObstacleAvoidance::laserCallback(const sensor_msgs::LaserScan::ConstPtr& laser_msg)
