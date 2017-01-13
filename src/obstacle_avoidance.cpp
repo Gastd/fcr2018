@@ -27,7 +27,7 @@ void ObstacleAvoidance::sonarCallback(const p2os_msgs::SonarArray::ConstPtr& son
 void ObstacleAvoidance::algorithm()
 {
     double new_linear_vel = desired_vel_.linear.x;
-    double new_angular_vel = desired_vel_.angular.z
+    double new_angular_vel = desired_vel_.angular.z;
 
     // Escreva aqui seu codigo
 
