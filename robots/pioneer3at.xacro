@@ -461,7 +461,7 @@ name="pioneer3at"
     <robotBaseFrame>base_link</robotBaseFrame>
     <torque>200</torque>
     <commandTopic>cmd_vel</commandTopic>
-    <odometryTopic>odom</odometryTopic>
+    <odometryTopic>pose</odometryTopic>
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
   </plugin>
