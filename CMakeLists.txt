@@ -22,8 +22,8 @@ include_directories(
 add_executable(gazebo_sonar src/gazebo_sonar.cpp)
 target_link_libraries(gazebo_sonar ${catkin_LIBRARIES})
 
-add_executable(forward_kinematics_pioneer src/forward_kinematics_pioneer.cpp)
-target_link_libraries(forward_kinematics_pioneer ${catkin_LIBRARIES})
+#add_executable(forward_kinematics_pioneer src/forward_kinematics_pioneer.cpp)
+#target_link_libraries(forward_kinematics_pioneer ${catkin_LIBRARIES})
 
-add_executable(pwm_quad src/pwm_quad.cpp)
-target_link_libraries(pwm_quad ${catkin_LIBRARIES})
+#add_executable(pwm_quad src/pwm_quad.cpp)
+#target_link_libraries(pwm_quad ${catkin_LIBRARIES})
