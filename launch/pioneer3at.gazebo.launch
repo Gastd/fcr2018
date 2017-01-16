@@ -17,7 +17,8 @@
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/gazebo.rviz"/>
 
     <node name="sonar" pkg="fcr2017" type="gazebo_sonar" />
-    <!-- <node name="forward_kinematics_pioneer" pkg="fcr2017" type="forward_kinematics_pioneer" /> -->
+
+    <include file="$(find fcr2017)/launch/map.launch" />
 
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
