@@ -13,3 +13,5 @@ Como mudar de branch no git
 3 - Para voltar pro branch principal
 
     -> $ git checkout master
+
+obs: para mais informacoes https://www.dropbox.com/s/gz6ruh85uvv28kd/helpGit.txt?dl=0
