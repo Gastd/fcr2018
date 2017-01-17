@@ -625,15 +625,6 @@ name="pioneer3at"
     </plugin>
 </gazebo>
 
-<gazebo>
-	<plugin name="pioneer_groundtruth_sim" filename="libgazebo_ros_p3d.so">
-            <updateRate>100.0</updateRate>
-            <bodyName>base_link</bodyName>
-            <topicName>ground_truth/state</topicName>
-            <gaussianNoise>0.0</gaussianNoise>
-            <frameName>$(arg world_frame)</frameName>
-	</plugin>
-</gazebo>
 </xacro:macro>
 <xacro:p3at_front suffix="left" reflect="1"/>
 <xacro:p3at_front suffix="right" reflect="-1"/>
