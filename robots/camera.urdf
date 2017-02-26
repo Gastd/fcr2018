@@ -19,10 +19,10 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="1.57 0 0" />
+        rpy="1.5707963267948966 0 0" />
       <geometry>
         <mesh
-          filename="package://camera/meshes/pan_link.stl" />
+          filename="package://fcr2017/meshes/ptz_canon_camera/pan_link.stl" />
       </geometry>
       <material
         name="">
@@ -36,7 +36,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://camera/meshes/pan_link.stl" />
+          filename="package://fcr2017/meshes/ptz_canon_camera/pan_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -62,7 +62,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://camera/meshes/tilt_link.stl" />
+          filename="package://fcr2017/meshes/ptz_canon_camera/tilt_link.stl" />
       </geometry>
       <material
         name="">
@@ -76,10 +76,11 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://camera/meshes/tilt_link.stl" />
+          filename="package://fcr2017/meshes/ptz_canon_camera/tilt_link.stl" />
       </geometry>
     </collision>
   </link>
+  <!-- Joint limits: lower -100 degrees, upper 100 degrees, Pan velocity: 90 degrees/sec -->
   <joint
     name="pan_joint"
     type="revolute">
@@ -93,10 +94,10 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="0"
-      velocity="0" />
+      lower="-1.5707963267948966"
+      upper="1.5707963267948966"
+      effort="1"
+      velocity="1.5707963267948966" />
   </joint>
   <link
     name="zoom_link">
@@ -120,7 +121,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://camera/meshes/zoom_link.stl" />
+          filename="package://fcr2017/meshes/ptz_canon_camera/zoom_link.stl" />
       </geometry>
       <material
         name="">
@@ -134,10 +135,11 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://camera/meshes/zoom_link.stl" />
+          filename="package://fcr2017/meshes/ptz_canon_camera/zoom_link.stl" />
       </geometry>
     </collision>
   </link>
+  <!-- Joint limits: lower -30 degrees, upper 90 degrees, Tilt velocity: 70 degrees/sec -->
   <joint
     name="tilt_joint"
     type="revolute">
@@ -151,9 +153,9 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      lower="0"
-      upper="1.57"
-      effort="0"
-      velocity="0" />
+      lower="-0.5235987755982988" 
+      upper="1.5707963267948966"
+      effort="1"
+      velocity="1.2217304763960306" />
   </joint>
 </robot>

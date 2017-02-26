@@ -617,6 +617,42 @@ name="pioneer3at"
     </plugin>
 </gazebo>
 
+  <transmission name="pan_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="pan_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="pan_servo">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tilt_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="tilt_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="tilt_servo">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+<!-- Camera Frame for ROS -->
+    <link name="ptz_camera_optical_frame" />
+    <joint name="ptz_camera_optical_joint" type="fixed">
+      <origin xyz="0.00 0.00 0.055" rpy="0 0 3.14"/>
+      <parent link="zoom_link" />
+      <child link="ptz_camera_optical_frame"/>
+    </joint>
+
 </xacro:macro>
 <xacro:p3at_front suffix="left" reflect="1"/>
 <xacro:p3at_front suffix="right" reflect="-1"/>
