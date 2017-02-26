@@ -5,6 +5,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro"
 name="pioneer3at"
 >
+    <xacro:include filename="$(find fcr2017)/robots/camera.urdf"/>
 
 <!-- Chassis -->
 	<link name="base_link">
@@ -35,21 +36,12 @@ name="pioneer3at"
 		<material value="Gazebo/Red"/>
 	</gazebo>
 
-<!--link name="odom">
-</link>
-<joint name="odom_base" type="floating">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<parent link="odom"/>
-		<child link="base_link"/>
-	</joint-->
-<!--<link name="map">
-</link-->
-<!--<joint name="map_odom" type="fixed">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-		<parent link="map"/>
-		<child link="odom"/>
+	<joint name="camera_joint" type="fixed">
+		<origin xyz="0.195 0 0.155" rpy="1.57 0 1.57" />
+		<parent link="base_link" />
+		<child link="pan_link" />
 	</joint>
-	-->
+
 <!-- Top -->
 	<link name="top_plate">
 		<inertial>
