@@ -1,0 +1,159 @@
+<robot
+  name="camera">
+  <link
+    name="pan_link">
+    <inertial>
+      <origin
+        xyz="-0.0091403 0.0071471 -1.7809E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.10794" />
+      <inertia
+        ixx="7.1426E-05"
+        ixy="3.3189E-06"
+        ixz="-1.103E-14"
+        iyy="0.00014748"
+        iyz="2.568E-14"
+        izz="8.0717E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.57 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fcr2017/meshes/ptz_canon_camera/pan_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fcr2017/meshes/ptz_canon_camera/pan_link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="tilt_link">
+    <inertial>
+      <origin
+        xyz="2.7279E-12 -1.8919E-12 0.013158"
+        rpy="0 0 0" />
+      <mass
+        value="0.064751" />
+      <inertia
+        ixx="4.2261E-05"
+        ixy="-2.4784E-11"
+        ixz="1.3773E-13"
+        iyy="2.7467E-05"
+        iyz="-2.3112E-13"
+        izz="4.3761E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fcr2017/meshes/ptz_canon_camera/tilt_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fcr2017/meshes/ptz_canon_camera/tilt_link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="pan_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0127"
+      rpy="-4.5919E-16 -1.7382E-16 -3.136" />
+    <parent
+      link="pan_link" />
+    <child
+      link="tilt_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="zoom_link">
+    <inertial>
+      <origin
+        xyz="0.00012702 0.0073708 0.013574"
+        rpy="0 0 0" />
+      <mass
+        value="0.17847" />
+      <inertia
+        ixx="8.0556E-05"
+        ixy="-6.7333E-11"
+        ixz="1.2638E-10"
+        iyy="0.00016402"
+        iyz="2.758E-06"
+        izz="0.00013484" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fcr2017/meshes/ptz_canon_camera/zoom_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fcr2017/meshes/ptz_canon_camera/zoom_link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="tilt_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.05"
+      rpy="1.5906 -3.4207E-17 -1.5708" />
+    <parent
+      link="tilt_link" />
+    <child
+      link="zoom_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
