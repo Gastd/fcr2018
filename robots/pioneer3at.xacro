@@ -498,7 +498,7 @@ name="pioneer3at"
 <gazebo reference="hokuyo_link">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
@@ -649,11 +649,20 @@ name="pioneer3at"
     </actuator>
   </transmission>
 
-<gazebo>
-  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-    <robotNamespace>/</robotNamespace>
-  </plugin>
-</gazebo>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+<!-- Camera Frame for ROS -->
+    <link name="ptz_camera_optical_frame" />
+    <joint name="ptz_camera_optical_joint" type="fixed">
+      <origin xyz="0.00 0.00 0.055" rpy="0 0 3.14"/>
+      <parent link="zoom_link" />
+      <child link="ptz_camera_optical_frame"/>
+    </joint>
+
 
 </xacro:macro>
 <xacro:p3at_front suffix="left" reflect="1"/>

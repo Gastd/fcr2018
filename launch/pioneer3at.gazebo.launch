@@ -9,7 +9,7 @@
         <arg name="world_name" value="$(find fcr2017)/worlds/cic/cic.world"/>
     </include>
 
-    <include file="$(find fcr2017)/launch/upload_pioneer3at.xml"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find fcr2017)/robots/pioneer3at.gazebo.xacro" />
 
     <!-- push robot_description to factory and spawn robot in gazebo -->
     <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model Pioneer3at" respawn="false" output="screen" />
@@ -21,7 +21,10 @@
     <include file="$(find fcr2017)/launch/map.launch" />
     <include file="$(find fcr2017)/launch/ptz_control.launch" />
 
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+<!--     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="True"/>
+        <param name="source_list" value="['joint_states']" />
+    </node> -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
     respawn="false" output="screen">
         <!-- <remap from="/joint_states" to="/p3at/joint_states" /> -->
