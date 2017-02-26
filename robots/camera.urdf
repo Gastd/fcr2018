@@ -95,8 +95,8 @@
     <limit
       lower="-1.57"
       upper="1.57"
-      effort="0"
-      velocity="0" />
+      effort="1"
+      velocity="1" />
   </joint>
   <link
     name="zoom_link">
@@ -153,7 +153,7 @@
     <limit
       lower="0"
       upper="1.57"
-      effort="0"
-      velocity="0" />
+      effort="1"
+      velocity="1" />
   </joint>
 </robot>

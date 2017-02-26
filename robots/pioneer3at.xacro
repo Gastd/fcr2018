@@ -7,9 +7,17 @@ name="pioneer3at"
 >
 
 	<xacro:include filename="$(find fcr2017)/robots/camera.urdf"/>
+<!-- Base Link -->
+	<link name="base_link">
+	</link>
+	<joint name="chassis_joint" type="fixed">
+		<origin xyz="0.0 0 0.0" rpy="0 0 0" />
+		<parent link="base_link"/>
+		<child link="chassis"/>
+	</joint>
 
 <!-- Chassis -->
-	<link name="base_link">
+	<link name="chassis">
 		<inertial>
 			<mass value="10.0"/>
 			<origin xyz="0 0 0.197"/>
@@ -33,13 +41,13 @@ name="pioneer3at"
 				</geometry>
 		</collision>
 	</link>
-	<gazebo reference="base_link">
+	<gazebo reference="chassis">
 		<material value="Gazebo/Red"/>
 	</gazebo>
 
 	<joint name="camera_joint" type="fixed">
 		<origin xyz="0.195 0 0.155" rpy="1.57 0 1.57" />
-		<parent link="base_link"/>
+		<parent link="chassis"/>
 		<child link="pan_link"/>
 	</joint>
 	
@@ -74,7 +82,7 @@ name="pioneer3at"
 
 	<joint name="base_top_joint" type="fixed">
 		<origin xyz="0.040 0 0.274" rpy="0 0 0"/>
-		<parent link="base_link"/>
+		<parent link="chassis"/>
 		<child link="top_plate"/>
 	</joint>
 <!-- Front + Back Sonar -->
@@ -107,7 +115,7 @@ name="pioneer3at"
 
 	<joint name="base_front_joint" type="fixed">
 		<origin xyz="0.193 0 0.25" rpy="0 0 0"/>
-		<parent link="base_link"/>
+		<parent link="chassis"/>
 		<child link="front_sonar"/>
 	</joint>
 
@@ -140,7 +148,7 @@ name="pioneer3at"
 
 	<joint name="base_back_joint" type="fixed">
 		<origin xyz="-0.193 0 0.25" rpy="0 0 0"/>
-		<parent link="base_link"/>
+		<parent link="chassis"/>
 		<child link="back_sonar"/>
 	</joint>
 
@@ -200,7 +208,7 @@ name="pioneer3at"
 
 <joint name="imu_joint" type="fixed">
     <origin xyz="0 0 0" rpy="3.1415 0 0"/>
-    <parent link="base_link"/>
+    <parent link="chassis"/>
     <child link="imu"/>
 </joint>
 
@@ -235,7 +243,7 @@ name="pioneer3at"
 
 	<joint name="base_front_${suffix}_axle_joint" type="fixed">
 		<origin xyz="0.135 ${reflect*0.156} 0.111" rpy="0 0 0"/>
-		<parent link="base_link"/>
+		<parent link="chassis"/>
 		<child link="p3at_front_${suffix}_axle"/>
 	</joint>
 
@@ -341,7 +349,7 @@ name="pioneer3at"
 
 	<joint name="p3at_back_${suffix}_axle_joint" type="fixed">
 		<origin xyz="-0.134 ${reflect*0.156} 0.111" rpy="0 0 0"/>
-		<parent link="base_link"/>
+		<parent link="chassis"/>
 		<child link="p3at_back_${suffix}_axle"/>
 	</joint>
 
@@ -616,6 +624,35 @@ name="pioneer3at"
         <headingDrift>0.05</headingDrift>
         <headingGaussianNoise>0.05</headingGaussianNoise>
     </plugin>
+</gazebo>
+
+
+  <transmission name="pan_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="pan_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="pan_servo">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tilt_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="tilt_joint">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="tilt_servo">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/</robotNamespace>
+  </plugin>
 </gazebo>
 
 </xacro:macro>
