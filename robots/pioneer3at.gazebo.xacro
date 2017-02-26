@@ -10,8 +10,8 @@ name="pioneer3at"
     <xacro:include filename="$(find fcr2017)/robots/pioneer3at.xacro"/>
     <link name="ptz_camera_optical_gazebo_frame" />
     <joint name="ptz_camera_optical_gazebo_joint" type="fixed">
-      <origin xyz="0.00 0.00 0.055" rpy="-1.57 -1.57 0"/>
-      <parent link="zoom_link" />
+      <origin xyz="0.00 0.00 0.0" rpy="-1.57 -1.57 0"/>
+      <parent link="ptz_camera_optical_frame" />
       <child link="ptz_camera_optical_gazebo_frame"/>
     </joint>
 
