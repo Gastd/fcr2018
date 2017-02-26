@@ -21,10 +21,10 @@ name="pioneer3at"
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
       <camera name="head">
-        <horizontal_fov>1.3962634</horizontal_fov>
+        <horizontal_fov>0.7330382858376184</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>460</width>
+          <height>350</height>
           <format>R8G8B8</format>
         </image>
         <clip>
