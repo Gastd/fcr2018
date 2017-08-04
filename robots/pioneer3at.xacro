@@ -7,7 +7,6 @@ name="pioneer3at"
 >
     <xacro:include filename="$(find fcr2017)/robots/camera.urdf"/>
 
-	<xacro:include filename="$(find fcr2017)/robots/camera.urdf"/>
 <!-- Base Link -->
 	<link name="base_link">
 	</link>
