@@ -28,6 +28,9 @@ target_link_libraries(publisher3at ${catkin_LIBRARIES})
 add_executable(pose src/pose.cpp)
 target_link_libraries(pose ${catkin_LIBRARIES})
 
+add_executable(publisher3at src/publisher3at.cc)
+target_link_libraries(publisher3at ${catkin_LIBRARIES})
+
 #add_executable(forward_kinematics_pioneer src/forward_kinematics_pioneer.cpp)
 #target_link_libraries(forward_kinematics_pioneer ${catkin_LIBRARIES})
 

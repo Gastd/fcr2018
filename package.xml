@@ -19,6 +19,11 @@
   <run_depend>roscpp</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>sensor_msgs</run_depend>
+  <run_depend>ros_control</run_depend>
+  <run_depend>ros_controllers</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>hector_gazebo_plugins</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
   <run_depend>geometry_msgs</run_depend>
   <run_depend>p2os_msgs</run_depend>
   <run_depend>tf</run_depend>

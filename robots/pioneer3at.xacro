@@ -5,6 +5,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro"
 name="pioneer3at"
 >
+    <xacro:include filename="$(find fcr2017)/robots/camera.urdf"/>
 
 	<xacro:include filename="$(find fcr2017)/robots/camera.urdf"/>
 <!-- Base Link -->
@@ -47,10 +48,10 @@ name="pioneer3at"
 
 	<joint name="camera_joint" type="fixed">
 		<origin xyz="0.195 0 0.155" rpy="1.57 0 1.57" />
-		<parent link="chassis"/>
-		<child link="pan_link"/>
+		<parent link="base_link" />
+		<child link="pan_link" />
 	</joint>
-	
+
 <!-- Top -->
 	<link name="top_plate">
 		<inertial>
@@ -626,7 +627,6 @@ name="pioneer3at"
     </plugin>
 </gazebo>
 
-
   <transmission name="pan_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="pan_joint">
@@ -662,7 +662,6 @@ name="pioneer3at"
       <parent link="zoom_link" />
       <child link="ptz_camera_optical_frame"/>
     </joint>
-
 
 </xacro:macro>
 <xacro:p3at_front suffix="left" reflect="1"/>
