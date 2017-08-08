@@ -18,7 +18,6 @@
 
     <node name="sonar" pkg="fcr2017" type="gazebo_sonar" />
 
-    <include file="$(find fcr2017)/launch/map.launch" />
     <include file="$(find fcr2017)/launch/ptz_control.launch" />
 
     <node name="p3at_joint_tf_publisher" type="publisher3at" pkg="fcr2017" />
