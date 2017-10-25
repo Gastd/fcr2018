@@ -4,6 +4,7 @@
 #include "geometry_msgs/Twist.h"
 #include "tf/tf.h"
 #include "tf/transform_datatypes.h"
+#include "laser_line_extraction/LineSegmentList.h"
 
 void odomCallBack(const nav_msgs::Odometry::ConstPtr& msg)
 {

@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   p2os_msgs
   tf
+  # laser_line_extraction
 )
 
 catkin_package(
