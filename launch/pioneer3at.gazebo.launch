@@ -16,9 +16,9 @@
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/gazebo.rviz"/>
 
-    <node name="sonar" pkg="fcr2017" type="gazebo_sonar" />
+    <!-- <node name="sonar" pkg="fcr2017" type="gazebo_sonar" /> -->
 
-    <include file="$(find fcr2017)/launch/ptz_control.launch" />
+    <!-- <include file="$(find fcr2017)/launch/ptz_control.launch" /> -->
 
     <node name="p3at_joint_tf_publisher" type="publisher3at" pkg="fcr2017" />
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
@@ -29,7 +29,7 @@
     <!-- Baixe o pacote laser_line_extraction -->
     <!-- $ git clone https://github.com/kam3k/laser_line_extraction -->
     <!-- na pasta src/ do seu workspace compile o workspace -->
-    <node name="line_extractor" pkg="laser_line_extraction" type="line_extraction_node">
+<!--     <node name="line_extractor" pkg="laser_line_extraction" type="line_extraction_node">
         <param name="~frequency" value="30.0" />
         <param name="~frame_id" value="hokuyo_link" />
         <param name="~scan_topic" value="hokuyo_scan" />
@@ -45,5 +45,5 @@
         <param name="~outlier_dist" value="0.06" />
         <param name="~min_line_points" value="10" />
     </node>
-
+ -->
 </launch>
