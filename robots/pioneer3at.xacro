@@ -466,7 +466,7 @@ name="pioneer3at"
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
   </plugin> -->
-<!--   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
     <robotNamespace>/</robotNamespace>
     <alwaysOn>true</alwaysOn>
     <updateRate>20</updateRate>
@@ -480,7 +480,7 @@ name="pioneer3at"
     <commandTopic>cmd_vel</commandTopic>
     <odometryTopic>pose</odometryTopic>
     <odometryFrame>odom</odometryFrame>
-  </plugin> -->
+  </plugin>
 </gazebo>
 
 
