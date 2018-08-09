@@ -9,7 +9,7 @@
         <arg name="world_name" value="$(find fcr2017)/worlds/cic/cic.world"/>
     </include>
 
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find fcr2017)/robots/pioneer3at.gazebo.xacro" />
+    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find fcr2017)/robots/pioneer3at.gazebo.xacro" /> -->
 
     <!-- push robot_description to factory and spawn robot in gazebo -->
     <!-- <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -file $(find fcr2017)/robots/pioneer3at.gazebo.urdf -model Pioneer3at" respawn="false" output="screen" /> -->
