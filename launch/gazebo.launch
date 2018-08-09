@@ -5,6 +5,7 @@
     <env name="GAZEBO_MODEL_PATH" value="$(arg pkg_gazebo_worlds)/models:$(optenv GAZEBO_MODEL_PATH)"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg name="verbose" value="true"/>
         <!-- To use this world go to https://github.com/Gastd/cic and download the model -->
         <arg name="world_name" value="$(find fcr2017)/worlds/cic/cic.world"/>
     </include>
@@ -12,7 +13,7 @@
     <!-- <param name="robot_description" command="$(find xacro)/xacro $(find fcr2017)/robots/pioneer3at.gazebo.xacro" /> -->
 
     <!-- push robot_description to factory and spawn robot in gazebo -->
-    <!-- <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -file $(find fcr2017)/robots/pioneer3at.gazebo.urdf -model Pioneer3at" respawn="false" output="screen" /> -->
+    <!-- <node name="spawn_pioneer" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model Pioneer3at" respawn="false" output="screen" /> -->
 
     <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/gazebo.rviz"/> -->
 
