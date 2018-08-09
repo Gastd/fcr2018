@@ -449,8 +449,8 @@ name="pioneer3at"
 
 <xacro:macro name="p3at_gazebo_ext">
 
-<!-- <gazebo>
-  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+<gazebo>
+<!--   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>50000.0</updateRate>
     <robotNamespace>/</robotNamespace>
     <leftFrontJoint>p3at_front_left_wheel_joint</leftFrontJoint>
@@ -465,8 +465,24 @@ name="pioneer3at"
     <odometryTopic>pose</odometryTopic>
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
-  </plugin>
-</gazebo> -->
+  </plugin> -->
+<!--   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <robotNamespace>/</robotNamespace>
+    <alwaysOn>true</alwaysOn>
+    <updateRate>20</updateRate>
+    <legacyMode>false</legacyMode>
+    <leftJoint>p3at_front_left_wheel_joint</leftJoint>
+    <rightJoint>p3at_front_right_wheel_joint</rightJoint>
+    <wheelSeparation>0.4</wheelSeparation>
+    <wheelDiameter>0.215</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <wheelTorque>20</wheelTorque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>pose</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+  </plugin> -->
+</gazebo>
+
 
 <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
