@@ -449,7 +449,7 @@ name="pioneer3at"
 
 <xacro:macro name="p3at_gazebo_ext">
 
-<gazebo>
+<!-- <gazebo>
   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
     <updateRate>50000.0</updateRate>
     <robotNamespace>/</robotNamespace>
@@ -466,7 +466,7 @@ name="pioneer3at"
     <odometryFrame>odom</odometryFrame>
     <broadcastTF>1</broadcastTF>
   </plugin>
-</gazebo>
+</gazebo> -->
 
 <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
