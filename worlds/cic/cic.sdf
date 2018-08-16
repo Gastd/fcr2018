@@ -17,7 +17,7 @@
             <uri>model://cic.dae</uri>
           </mesh>
         </geometry>
-        <cast_shadows>false</cast_shadows>
+        <cast_shadows>true</cast_shadows>
       </visual>
     </link>
   </model>

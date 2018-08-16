@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(fcr2017)
+project(fcr2018)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   geometry_msgs
   sensor_msgs
-  p2os_msgs
   tf
   # laser_line_extraction
 )
@@ -20,8 +19,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(gazebo_sonar src/gazebo_sonar.cpp)
-target_link_libraries(gazebo_sonar ${catkin_LIBRARIES})
+# add_executable(gazebo_sonar src/gazebo_sonar.cpp)
+# target_link_libraries(gazebo_sonar ${catkin_LIBRARIES})
 
 add_executable(publisher3at src/publisher3at.cc)
 target_link_libraries(publisher3at ${catkin_LIBRARIES})
