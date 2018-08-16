@@ -33,21 +33,3 @@ target_link_libraries(forward_kinematics_pioneer ${catkin_LIBRARIES})
 
 #add_executable(pwm_quad src/pwm_quad.cpp)
 #target_link_libraries(pwm_quad ${catkin_LIBRARIES})
-
-install( TARGETS
-    gazebo_sonar gazebo_sonar pose forward_kinematics_pioneer
-    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    # LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
-install(DIRECTORY
-config
-launch
-maps
-meshes
-models
-robots
-worlds
-DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
