@@ -6,7 +6,8 @@
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
         <!-- To use this world go to https://github.com/Gastd/cic and download the model -->
-        <arg name="world_name" value="$(find fcr2017)/worlds/cic/cic.world"/>
+        <!-- <arg name="world_name" value="$(find fcr2017)/worlds/cic/cic.world"/> -->
+        <arg name="world_name" value="$(find fcr2017)/worlds/new_world.world"/>
     </include>
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder $(find fcr2017)/robots/pioneer3at.gazebo.xacro" />
