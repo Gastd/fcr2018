@@ -83,10 +83,10 @@
   <!-- Joint limits: lower -100 degrees, upper 100 degrees, Pan velocity: 90 degrees/sec -->
   <joint
     name="pan_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0 0 0.0127"
-      rpy="-4.5919E-16 -1.7382E-16 -3.136" />
+      rpy="-4.5919E-16 -1.7382E-16 1.57" />
     <parent
       link="pan_link" />
     <child
@@ -142,7 +142,7 @@
   <!-- Joint limits: lower -30 degrees, upper 90 degrees, Tilt velocity: 70 degrees/sec -->
   <joint
     name="tilt_joint"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0 0 0.05"
       rpy="1.5906 -3.4207E-17 -1.5708" />
