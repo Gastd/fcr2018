@@ -17,9 +17,9 @@
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/gazebo.rviz"/>
 
-    <node name="sonar" pkg="fcr2017" type="gazebo_sonar" />
+    <!-- <node name="sonar" pkg="fcr2017" type="gazebo_sonar" /> -->
 
-    <include file="$(find fcr2017)/launch/ptz_control.launch" />
+    <!-- <include file="$(find fcr2017)/launch/ptz_control.launch" /> -->
 
     <node name="p3at_joint_tf_publisher" type="publisher3at" pkg="fcr2017" />
     <node name="forward" type="forward_kinematics_pioneer" pkg="fcr2017" />
