@@ -14,18 +14,24 @@ name="pioneer3at"
 		<parent link="base_link"/>
 		<child link="chassis"/>
 	</joint>
-
+	<joint name="chassis_visual_joint" type="fixed">
+		<origin xyz="0.0 0 0.197" rpy="0 0 0" />
+		<parent link="chassis"/>
+		<child link="chassis_visual"/>
+	</joint>
 <!-- Chassis -->
-	<link name="chassis">
+    <link name="chassis">
+    </link>
+	<link name="chassis_visual">
 		<inertial>
 			<mass value="10.0"/>
-			<origin xyz="0 0 0.197"/>
+			<origin xyz="0 0 0.0"/>
 			<inertia ixx="0.3338" ixy="0.0" ixz="0.0"
 				 iyy="0.4783" iyz="0.0"
 				 izz="0.3338"/>
 		</inertial>
 		<visual name="base_visual">
-			<origin xyz="0 0 0.197" rpy="0 0 0"/>
+			<origin xyz="0 0 0.0" rpy="0 0 0"/>
 			<geometry name="pioneer_geom">
 				<mesh filename="package://fcr2017/meshes/p3at_meshes/chassis.dae"/>
 			</geometry>
@@ -34,7 +40,7 @@ name="pioneer3at"
 			</material>
 		</visual>
 		<collision>
-			<origin xyz="0 0 0.197" rpy="0 0 0"/>
+			<origin xyz="0 0 0.0" rpy="0 0 0"/>
 				<geometry>
 					<mesh filename="package://fcr2017/meshes/p3at_meshes/chassis.dae"/>
 				</geometry>
