@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- This is the launch file for a Pioneer-3DX Robot with either -->
+<!-- a Hokuyo Laser or a SICK lms2XX Laser. -->
+
+<launch>
+  <arg name="HokuyoLaser" value="1"/>
+  <arg name="P2OS_Driver" value="1"/>
+  <param name="includeFile" value="$(find fcr2017)/launch/pioneer3dx-hokuyo.world" type="str" /> 
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find fcr2017)/robots/pioneer3at.stage.xacro" />
+
+  <!-- <include file="$(find fcr2017)/launch/display.launch"/> -->
+  <!-- <node name="p3at_joint_tf_publisher" type="publisher3at" pkg="fcr2017" /> -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/stage.rviz"/>
+
+  <node name="forward" type="forward_kinematics_pioneer" pkg="fcr2017" />
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(find fcr2017)/launch/pioneer3dx-hokuyo.world" >
+    <remap from="/base_scan" to="/hokuyo_scan" />
+    <remap from="/odom" to="/pose" />
+  </node>
+</launch>
