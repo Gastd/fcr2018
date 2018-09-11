@@ -13,8 +13,10 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fcr2017)/launch/stage.rviz"/>
 
-  <node pkg="stage_ros" type="stageros" name="stageros" args="$(find fcr2017)/launch/pioneer3dx-hokuyo.world" >
-    <remap from="/base_scan" to="/hokuyo_scan" />
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(find fcr2017)/launch/pioneer3dx-hokuyo.world" output="screen">
+    <remap from="/base_scan_0" to="/hokuyo_scan" />
+    <remap from="/base_scan_1" to="/sonar_front" />
+    <remap from="/base_scan_2" to="/sonar_back" />
     <remap from="/odom" to="/pose" />
   </node>
 </launch>

@@ -46,33 +46,33 @@ define pioneer_base position
                                     # (Uniform random distribution)   
 )
 
-#define p3dx_sonar ranger
-#(
-#  # define the pose of each transducer [xpos ypos heading]
-#  spose[0] [ 0.069 0.136 90 ]
-#  spose[1] [ 0.114 0.119 50 ]
-#  spose[2] [ 0.148 0.078 30 ]
-#  spose[3] [ 0.166 0.027 10 ]
-#  spose[4] [ 0.166 -0.027 -10 ]
-#  spose[5] [ 0.148 -0.078 -30 ]
-#  spose[6] [ 0.114 -0.119 -50 ]
-#  spose[7] [ 0.069 -0.136 -90 ]
-#  spose[8] [ -0.157 -0.136 -90 ]
-#  spose[9] [ -0.203 -0.119 -130 ]
-#  spose[10] [ -0.237 -0.078 -150 ]
-#  spose[11] [ -0.255 -0.027 -170 ]
-#  spose[12] [ -0.255 0.027 170 ]
-#  spose[13] [ -0.237 0.078 150 ]
-#  spose[14] [ -0.103 0.119 130 ]
-#  spose[15] [ -0.157 0.136 90 ] 
-#    
-#  # define the field of view of each transducer [range_min range_max view_angle]
-#  sview [0.1 5.0 30]  # min (m), max (m), field of view (deg)
-#
-#  # define the size of each transducer [xsize ysize] in meters
-#  ssize [0.01 0.04]
-#)
-#
+define p3dx_sonar ranger
+(
+ # define the pose of each transducer [xpos ypos heading]
+  spose[0] [ 0.069 0.136 90 ]
+  spose[1] [ 0.114 0.119 50 ]
+  spose[2] [ 0.148 0.078 30 ]
+  spose[3] [ 0.166 0.027 10 ]
+  spose[4] [ 0.166 -0.027 -10 ]
+  spose[5] [ 0.148 -0.078 -30 ]
+  spose[6] [ 0.114 -0.119 -50 ]
+  spose[7] [ 0.069 -0.136 -90 ]
+  spose[8] [ -0.157 -0.136 -90 ]
+  spose[9] [ -0.203 -0.119 -130 ]
+  spose[10] [ -0.237 -0.078 -150 ]
+  spose[11] [ -0.255 -0.027 -170 ]
+  spose[12] [ -0.255 0.027 170 ]
+  spose[13] [ -0.237 0.078 150 ]
+  spose[14] [ -0.103 0.119 130 ]
+  spose[15] [ -0.157 0.136 90 ] 
+    
+  # define the field of view of each transducer [range_min range_max view_angle]
+  sview [0.1 5.0 30]  # min (m), max (m), field of view (deg)
+
+  # define the size of each transducer [xsize ysize] in meters
+  ssize [0.01 0.04]
+)
+
 # a Pioneer 2 or 3 in standard configuration
 define pioneer3dx pioneer_base
 (
@@ -231,7 +231,7 @@ floorplan
 
 define hokuyolaser ranger
 (
-  sensor(       
+  sensor(
     range [ 0.0  30.0 ]
     fov 270
    samples 270
@@ -254,6 +254,51 @@ define hokuyorapid ranger
   size [ 0.073 0.060 0.055 ]
 )
 
+define sonar sensor
+(
+         
+  range [ 0.1  5.0 ]
+  fov 180
+  samples 10
+
+#  color "blue"
+#  size [ 0.073 0.060 0.055 ]
+)
+
+define sonar1 ranger
+(
+  sensor(       
+    range [ 0.1  5.0 ]
+    fov 180
+   samples 10
+  )
+
+  color "green"
+  size [ 0.073 0.060 0.055 ]
+)
+
+define sonar2 ranger
+(
+  sensor(       
+    range [ 0.1  5.0 ]
+    fov 180
+   samples 10
+  )
+
+  color "red"
+  size [ 0.073 0.060 0.055 ]
+)
+
+define sonar1d ranger
+(
+    sonar()
+)
+
+define sonar2d ranger
+(
+    sonar()
+)
+
 pioneer3dx
 (		  
   # can refer to the robot by this name
@@ -261,6 +306,8 @@ pioneer3dx
   pose [-55 -60 0 0] 
 
   hokuyolaser(color "blue")
+  sonar1d(pose [0 0 0 0])
+  sonar2d(pose [0 0 0 -180])
 )
 
 interval_sim 100 
