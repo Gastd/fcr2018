@@ -547,7 +547,7 @@ name="pioneer3at"
     </sensor>
 </gazebo>
 
-<!-- <gazebo reference="front_sonar">
+<gazebo reference="front_sonar">
     <sensor type="ray" name="front_sonar_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -558,12 +558,8 @@ name="pioneer3at"
             <samples>8</samples>
             <resolution>1</resolution>
             <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle> -->
-<!--             <samples>16</samples>
-            <resolution>1</resolution>
-            <min_angle>-1.919862</min_angle>
-            <max_angle>1.919862</max_angle> -->
-   <!--        </horizontal>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
         </scan>
         <range>
           <min>0.10</min>
@@ -571,23 +567,19 @@ name="pioneer3at"
           <resolution>0.1</resolution>
         </range>
         <noise>
-          <type>gaussian</type> -->
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
-<!--           <mean>0.0</mean>
+          <type>gaussian</type>
+          <mean>0.0</mean>
           <stddev>0.1</stddev>
         </noise>
       </ray>
       <plugin name="gazebo_ros_front_sonar_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/front_sonar_raw</topicName>
+        <topicName>/front_sonar</topicName>
         <frameName>front_sonar</frameName>
       </plugin>
     </sensor>
-</gazebo> -->
+</gazebo>
 
-<!-- <gazebo reference="back_sonar_fake">
+<gazebo reference="back_sonar_fake">
     <sensor type="ray" name="back_sonar_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -598,12 +590,8 @@ name="pioneer3at"
             <samples>8</samples>
             <resolution>1</resolution>
             <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle> -->
-<!--             <samples>16</samples>
-            <resolution>1</resolution>
-            <min_angle>-1.919862</min_angle>
-            <max_angle>1.919862</max_angle> -->
- <!--          </horizontal>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
         </scan>
         <range>
           <min>0.10</min>
@@ -611,22 +599,18 @@ name="pioneer3at"
           <resolution>0.1</resolution>
         </range>
         <noise>
-          <type>gaussian</type> -->
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
-    <!--       <mean>0.0</mean>
+          <type>gaussian</type>
+          <mean>0.0</mean>
           <stddev>0.1</stddev>
         </noise>
       </ray>
       <plugin name="gazebo_ros_back_sonar_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/back_sonar_raw</topicName>
-        <frameName>back_sonar_fake</frameName>
+        <topicName>/back_sonar</topicName>
+        <frameName>back_sonar</frameName>
       </plugin>
     </sensor>
 </gazebo>
-
+<!-- 
 <gazebo>
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
         <robotNamespace>/</robotNamespace>
@@ -640,8 +624,8 @@ name="pioneer3at"
         <headingDrift>0.05</headingDrift>
         <headingGaussianNoise>0.05</headingGaussianNoise>
     </plugin>
-</gazebo> -->
-
+</gazebo>
+ -->
 <!--   <transmission name="pan_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="pan_joint">
